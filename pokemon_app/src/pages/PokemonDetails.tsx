@@ -1,65 +1,19 @@
 import { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router";
-import ProgressBar from "../components/ProgressBar";
-
-interface PokemonType {
-  type: {
-    name: string;
-    url: string;
-  };
-  slot: number;
-}
-
-interface PokemonAbility {
-  ability: {
-    name: string;
-    url: string;
-  };
-  is_hidden: boolean;
-  slot: number;
-}
-
-interface PokemonStat {
-  base_stat: number;
-  effort: number;
-  stat: {
-    name: string;
-    url: string;
-  };
-}
-
-interface PokemonSprites {
-  front_default: string;
-  back_default: string;
-  other?: {
-    "official-artwork"?: {
-      front_default: string;
-    };
-  };
-}
-
-interface PokemonData {
-  id: number;
-  name: string;
-  height: number;
-  weight: number;
-  base_experience: number;
-  abilities: PokemonAbility[];
-  stats: PokemonStat[];
-  types: PokemonType[];
-  sprites: PokemonSprites;
-}
+import { useParams } from "react-router";
+import PokemonHeader from "../components/pokemon-details/PokemonHeader";
+import Stats from "../components/pokemon-details/Stats";
+import Photos from "../components/pokemon-details/Photos";
+import Abilities from "../components/pokemon-details/Abilities";
+import BasisInfo from "../components/pokemon-details/BasisInfo";
+import ReturnToList from "../components/elements/ReturnToList";
+import Header from "../components/elements/Header";
+import Loading from "../components/elements/Loading";
 
 const PokemonDetails = () => {
-  const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [pokemonData, setPokemonData] = useState<PokemonData | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [pokemonData, setPokemonData] = useState(null);
 
-  const navigate = useNavigate();
   const { name } = useParams<{ name: string }>();
-
-  const goHome = () => {
-    navigate(-1);
-  };
 
   useEffect(() => {
     if (!name) return;
@@ -69,9 +23,9 @@ const PokemonDetails = () => {
         const response = await fetch(
           `https://pokeapi.co/api/v2/pokemon/${name}`
         );
-        const data: PokemonData = await response.json();
+        const data = await response.json();
         setPokemonData(data);
-        console.log(data.stats);
+        console.log(data);
       } catch (error) {
         console.log("Error during fetching", error);
       } finally {
@@ -81,36 +35,32 @@ const PokemonDetails = () => {
     fetchData();
   }, [name]);
 
-  if (isLoading) return <div className="mt-36 text-center">Loading...</div>;
+  if (isLoading) return <Loading />;
   if (!pokemonData)
-    return <div className="mt-36 text-center">No Pokemon found</div>;
+    return <div className="mt-44 text-center">No Pokemon found</div>;
 
   return (
-    <section className="mt-36 max-w-11/12 px-10 mx-auto">
-      <button onClick={() => goHome()}>GO BACK</button>
-      <h1>{name}</h1>
-      <div className="bg-sky-900">
-        {pokemonData.abilities.map((element, index) => (
-          <p key={index}>{element.ability.name}</p>
-        ))}
-      </div>
-      <div className="bg-amber-300 p-1 max-w-2xl rounded-2xl">
-        <div className="flex flex-col gap-4 bg-gradient-to-br from-slate-950 via-blue-950 to-slate-950 py-8 rounded-xl border-2 border-slate-800">
-          {pokemonData.stats.map((stat, index) => (
-            <div
-              key={index}
-              className="flex flex-col md:flex-row gap-4 items-center justify-between px-2 sm:px-20"
-            >
-              <p className="text-sm text-yellow-400">{stat.stat.name}</p>
-              <div className="mb-4">
-                <p className="text-sm text-yellow-200">{stat.base_stat}</p>
-                <ProgressBar stat={stat.base_stat} />
-              </div>
+    <>
+      <Header isDetails={false} />
+      <section className="mt-44 mb-28 max-w-10/12 px-10 mx-auto">
+        <PokemonHeader pokemon={pokemonData} />
+
+        <div className="flex flex-col lg:flex-row gap-8">
+          <div className="flex-1 flex flex-col gap-8">
+            <Photos pokemon={pokemonData} />
+            <div className="flex-1">
+              <Abilities pokemon={pokemonData} />
             </div>
-          ))}
+          </div>
+
+          <div className="flex-1 flex flex-col gap-8">
+            <Stats pokemon={pokemonData} />
+            <BasisInfo pokemon={pokemonData} />
+            <ReturnToList />
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </>
   );
 };
 
