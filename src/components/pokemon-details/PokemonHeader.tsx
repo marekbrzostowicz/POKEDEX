@@ -6,17 +6,22 @@ import { FiSquare } from "react-icons/fi";
 import { IoWaterSharp } from "react-icons/io5";
 import { BsLightningChargeFill } from "react-icons/bs";
 import { FaRegSnowflake } from "react-icons/fa";
-import { GiBouncingSword } from "react-icons/gi";
-import { GiPoisonBottle } from "react-icons/gi";
-import { GiGroundbreaker } from "react-icons/gi";
 import { PiBirdBold } from "react-icons/pi";
-import { FaHandBackFist } from "react-icons/fa6";
-import { GiSwamp } from "react-icons/gi";
-import { FaHillRockslide } from "react-icons/fa6";
-import { FaGhost } from "react-icons/fa6";
-import { FaDragon } from "react-icons/fa";
-import { GiSteelClaws } from "react-icons/gi";
-import { GiFairyWings } from "react-icons/gi";
+import {
+  FaHillRockslide,
+  FaDragon,
+  FaGhost,
+  FaHandBackFist,
+} from "react-icons/fa6";
+
+import {
+  GiSteelClaws,
+  GiFairyWings,
+  GiSwamp,
+  GiGroundbreaker,
+  GiPoisonBottle,
+  GiBouncingSword,
+} from "react-icons/gi";
 
 const PokemonHeader = ({ pokemon }: { pokemon: PokemonPropsHeader }) => {
   const getIcon = (statName: string) => {
