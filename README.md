@@ -1,9 +1,9 @@
 ## Installation
 ```bash
-git clone https://github.com/marekbrzostowicz/Text-Analyzer-App.git
+git clone https://github.com/marekbrzostowicz/POKEDEX.git
 ```
 ```bash
-cd character-counter
+cd POKEDEX
 ```
 ```bash
 npm install
