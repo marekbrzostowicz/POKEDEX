@@ -69,10 +69,8 @@ const PokemonList = () => {
   }, [currentPage, offset]);
 
   useEffect(() => {
-    if (!loading) {
-      scrollToTop();
-    }
-  }, [loading]);
+    scrollToTop();
+  }, [currentPage]);
 
   return (
     <div className="py-44 relative max-w-11/12 px-24 mx-auto">
