@@ -12,7 +12,7 @@ npm run dev
 https://agreeable-ocean-0ee09c310.1.azurestaticapps.net/
 
 ## Project Structure
-`
+```
 src/
 ├── components/          
 │   ├── elements/       
@@ -35,7 +35,7 @@ src/
 ├── assets/           
 ├── App.tsx            
 └── index.css
-`
+```
 
 ### Technologies
  - React + TypeScript
