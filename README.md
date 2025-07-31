@@ -1,4 +1,4 @@
-#Pokedex
+# Pokedex
 Interactive Pokemon encyclopedia that fetches data from Pokemon API. Browse through Pokemon, view detailed stats, abilities, and photos with a clean, responsive interface.
 
 ## Installation
