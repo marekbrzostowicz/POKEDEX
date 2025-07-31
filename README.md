@@ -12,6 +12,7 @@ npm run dev
 https://agreeable-ocean-0ee09c310.1.azurestaticapps.net/
 
 ## Project Structure
+`
 src/
 ├── components/          
 │   ├── elements/       
@@ -33,7 +34,8 @@ src/
 │   └── PokemonList.tsx
 ├── assets/           
 ├── App.tsx            
-└── index.css          
+└── index.css
+`
 
 ### Technologies
  - React + TypeScript
