@@ -1,6 +1,6 @@
 import { GoArrowSwitch } from "react-icons/go";
 import { PiStarFour } from "react-icons/pi";
-import { type PokemonPhotosProps } from "../../constans/types";
+import { type PokemonPhotosProps } from "../../constants/types";
 import { useState } from "react";
 
 const Photos = ({ pokemon }: { pokemon: PokemonPhotosProps }) => {

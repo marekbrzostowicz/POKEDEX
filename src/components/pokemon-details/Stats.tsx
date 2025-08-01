@@ -1,5 +1,5 @@
 import ProgressBar from "../elements/ProgressBar";
-import { type PokemonStatsProps } from "../../constans/types";
+import { type PokemonStatsProps } from "../../constants/types";
 import { IoIosHeart } from "react-icons/io";
 import { LuSword } from "react-icons/lu";
 import { FaShield } from "react-icons/fa6";

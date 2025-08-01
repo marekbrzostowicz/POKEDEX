@@ -1,4 +1,4 @@
-import { type PokemonCardProps } from "../../constans/types";
+import { type PokemonCardProps } from "../../constants/types";
 
 const PokemonCard = ({ pokemon }: { pokemon: PokemonCardProps }) => {
   return (

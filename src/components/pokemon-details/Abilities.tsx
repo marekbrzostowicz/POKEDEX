@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import {
   type PokemonAbilitiesProps,
   type PokemonAbilitiesDetails,
-} from "../../constans/types";
+} from "../../constants/types";
 import { GoEyeClosed } from "react-icons/go";
 import { GoArrowSwitch } from "react-icons/go";
 import { FaLongArrowAltLeft } from "react-icons/fa";

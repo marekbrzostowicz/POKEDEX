@@ -5,7 +5,7 @@ import { useNavigate, useSearchParams } from "react-router-dom";
 import {
   type PokemonCardProps,
   type PokemonPropsHeader,
-} from "../constans/types";
+} from "../constants/types";
 import Header from "../components/elements/Header";
 import Loading from "../components/elements/Loading";
 

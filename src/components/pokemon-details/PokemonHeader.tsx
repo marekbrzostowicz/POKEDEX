@@ -1,5 +1,5 @@
-import { type PokemonPropsHeader } from "../../constans/types";
-import { getColor } from "../../constans/colors";
+import { type PokemonPropsHeader } from "../../constants/types";
+import { getColor } from "../../constants/colors";
 import { MdOutlineGrass } from "react-icons/md";
 import { MdLocalFireDepartment } from "react-icons/md";
 import { FiSquare } from "react-icons/fi";
