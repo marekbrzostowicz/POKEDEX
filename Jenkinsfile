@@ -18,7 +18,7 @@ pipeline {
 
         stage('Pokaz wyniki (achiwizacja)'){
             steps {
-                archiveArtificats artifacts: 'dist/**/*', followSymlinks: false
+                archiveArtifacts artifacts: 'dist/**/*', followSymlinks: false
             }
         }
     }
