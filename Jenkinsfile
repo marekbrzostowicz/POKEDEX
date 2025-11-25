@@ -2,10 +2,23 @@ pipeline {
     agent any
 
     stages {
-        stage('Weryfikacja'){
+        stage('Inicjalizacja paczek'){
             steps {
-                echo 'kod zostal pobrany'
-                bat 'dir'
+                echo 'Instaluje zalenosci ...'
+                bat 'npm install'
+            }
+        }
+
+        stage('budowanie'){
+            steps{
+                echo 'Buduje wersje produkcyjne'
+                bat 'npm run build'
+            }
+        }
+
+        stage('Pokaz wyniki (achiwizacja)'){
+            steps {
+                archiveArtificats artifacts: 'dist/**/*', followSymlinks: false
             }
         }
     }
